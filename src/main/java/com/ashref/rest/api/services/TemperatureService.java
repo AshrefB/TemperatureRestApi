@@ -32,4 +32,23 @@ public class TemperatureService {
 		return response;
 	}
 	
+	public TemperatureResponse closestToZero(TemperatureRequest request) {
+		TemperatureResponse response = new TemperatureResponse();
+		int[] t = request.getTemperatures();
+		
+		Arrays.sort(t);
+        int num = t[0];
+        int c = 0;
+
+        for (int i = 0; i < t.length; i++) {
+            if (t[i] < c && t[i] > num)
+            	num = t[i];
+            if (t[i] > c && num < c)
+            	num = t[i];
+        }
+        
+		response.setResult(num);
+		return response;
+	}
+	
 }
