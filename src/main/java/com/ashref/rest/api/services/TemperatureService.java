@@ -1,6 +1,8 @@
 package com.ashref.rest.api.services;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,14 @@ public class TemperatureService {
 		int[] t = request.getTemperatures();
 		Arrays.sort(t);
 		response.setResult(t[0]);
+		return response;
+	}
+	
+	public TemperatureResponse max(TemperatureRequest request) {
+		TemperatureResponse response = new TemperatureResponse();
+		int[] t = request.getTemperatures();
+		Arrays.sort(t);
+		response.setResult(t[t.length-1]);
 		return response;
 	}
 }
