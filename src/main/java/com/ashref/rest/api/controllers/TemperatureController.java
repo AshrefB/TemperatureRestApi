@@ -25,4 +25,9 @@ public class TemperatureController {
 	public TemperatureResponse getMaxTemperature(@RequestBody TemperatureRequest request) {
 		return service.max(request);
 	}
+	
+	@PostMapping("/avg")
+	public TemperatureResponse getAvgTemperature(@RequestBody TemperatureRequest request) {
+		return service.avg(request);
+	}
 }
